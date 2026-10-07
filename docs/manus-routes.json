@@ -1,0 +1,13 @@
+{
+  "routes": [
+    { "path": "/#/home", "title": "Engineering workspace" },
+    { "path": "/#/tools", "title": "Engineering tools" },
+    { "path": "/#/circuits", "title": "Circuit lab" },
+    { "path": "/#/embedded", "title": "Embedded systems" },
+    { "path": "/#/communications", "title": "Communication lab" },
+    { "path": "/#/dashboard", "title": "IoT dashboard" },
+    { "path": "/#/solar-pump", "title": "Smart solar water pump" },
+    { "path": "/#/projects", "title": "Selected projects" },
+    { "path": "/#/documentation", "title": "System documentation" }
+  ]
+}
