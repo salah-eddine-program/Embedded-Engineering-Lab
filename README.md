@@ -37,15 +37,15 @@ pnpm preview
 pnpm build:pages
 ```
 
-`pnpm build` writes the regular production bundle to `dist/`. `pnpm build:pages` writes a GitHub Pages-ready static site to `docs/` with relative asset paths, so it works from a project subpath.
+`pnpm build` writes the regular production bundle to `dist/`. `pnpm build:pages` creates a GitHub Pages-ready bundle with relative asset paths, publishes the built `index.html` and `page-assets/` into the repository root, and mirrors the same bundle to `docs/`.
 
 ## GitHub Pages
 
-Use `main` as the publishing branch and `/docs` as its publishing folder. Build the current site with `pnpm build:pages` before publishing.
+This repository's existing Pages setting publishes branch `main` from its root (`/`). The source template is `src/index.html`; run `pnpm build:pages` to generate the compiled root page and assets. The build also keeps a current mirror in `docs/`, but changing the Pages setting is not required.
 
 > **Public repository and site:** `salah-eddine-program/Embedded-Engineering-Lab` is already public. Source code and information committed here are visible to everyone. Do not commit secrets, credentials or private data.
 
-The requested project-site URL is [https://salah-eddine-program.github.io/Embedded-Engineering-Lab/](https://salah-eddine-program.github.io/Embedded-Engineering-Lab/). GitHub Pages should serve the built files from `main/docs`.
+The requested project-site URL is [https://salah-eddine-program.github.io/Embedded-Engineering-Lab/](https://salah-eddine-program.github.io/Embedded-Engineering-Lab/).
 
 ## Data and calculation notes
 
@@ -69,12 +69,14 @@ Potential API resources include `/api/sensors`, `/api/pump`, `/api/projects`, `/
 ## Project structure
 
 ```text
+src/index.html  Vite source entry; root index.html is the built Pages entry
 src/core/       Calculation, formatting, chart and icon helpers
 src/data/       Embedded/protocol reference content, translations and simulated telemetry
 src/views/      Overview, tools, circuit lab, embedded, communications, dashboard,
                 solar pump, projects and documentation
 src/styles/     Design tokens, layout, components and RTL presentation rules
 public/         Route manifest, favicon and static assets
+scripts/        Build-output publishing helper for the current Pages root source
 ```
 
 ## Author

@@ -1,6 +1,12 @@
 import { defineConfig } from 'vite';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)));
 
 export default defineConfig({
+  root: resolve(projectRoot, 'src'),
+  publicDir: resolve(projectRoot, 'public'),
   appType: 'spa',
   server: {
     host: '0.0.0.0',
@@ -13,7 +19,7 @@ export default defineConfig({
     strictPort: true,
   },
   build: {
-    outDir: 'dist',
+    outDir: resolve(projectRoot, 'dist'),
     emptyOutDir: true,
     sourcemap: true,
   },
